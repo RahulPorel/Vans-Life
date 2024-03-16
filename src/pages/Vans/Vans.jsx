@@ -15,7 +15,7 @@ export default function Vans() {
       <Link
         to={`/vans/${van.id}`}
         aria-label={`View details for ${van.name}, 
-                             priced at $${van.price} per day`}
+ priced at $${van.price} per day`}
       >
         <img src={van.imageUrl} alt={`Image of ${van.name}`} />
         <div className="van-info">
