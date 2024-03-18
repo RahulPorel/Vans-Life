@@ -13,24 +13,18 @@ import VanDetail from "./pages/Vans/VanDetail";
 // import HostLayout from "./components/HostLayout"
 
 import "../server.js";
+import Layout from "./components/Layout.jsx";
 
 function App() {
   return (
     <BrowserRouter>
-      <header>
-        <Link className="site-logo" to="/">
-          #VAN LIFE
-        </Link>
-        <nav>
-          <Link to="/about">About</Link> &nbsp;
-          <Link to="/vans">Vans</Link>
-        </nav>
-      </header>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/vans" element={<Vans />} />{" "}
-        <Route path="/vans/:id" element={<VanDetail />} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/vans" element={<Vans />} />
+          <Route path="/vans/:id" element={<VanDetail />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
