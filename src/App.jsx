@@ -9,11 +9,11 @@ import Income from "./pages/Host/Income";
 import Reviews from "./pages/Host/Reviews";
 // import HostVans from "./pages/Host/HostVans"
 // import HostVanDetail from "./pages/Host/HostVanDetail"
-// import Layout from "./components/Layout"
+import Layout from "./components/Layout.jsx";
 // import HostLayout from "./components/HostLayout"
 
 import "../server.js";
-import Layout from "./components/Layout.jsx";
+import HostLayout from "./components/HostLayout.jsx";
 
 function App() {
   return (
@@ -23,8 +23,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/vans" element={<Vans />} />
-          <Route path="/vans/:id" element={<VanDetail />} />{" "}
-          <Route path="/host" element={<Dashboard />}>
+          <Route path="/vans/:id" element={<VanDetail />} />
+
+          <Route path="/host" element={<HostLayout />}>
             <Route path="/host/income" element={<Income />} />
             <Route path="/host/reviews" element={<Reviews />} />
           </Route>
