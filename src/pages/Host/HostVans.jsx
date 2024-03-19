@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const HostVan = () => {
+const HostVans = () => {
   const [vans, setVans] = useState([]);
 
   useEffect(() => {
@@ -40,4 +40,4 @@ const HostVan = () => {
   );
 };
 
-export default HostVan;
+export default HostVans;

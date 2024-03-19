@@ -1,12 +1,14 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import "./HostLayout.css";
+
 const HostLayout = () => {
   const activeStyle = {
     fontWeight: "bold",
     textDecoration: "underline",
     color: "#161616",
   };
+
   return (
     <>
       <nav className="host-nav">
@@ -35,7 +37,7 @@ const HostLayout = () => {
         >
           Reviews
         </NavLink>
-      </nav>{" "}
+      </nav>
       <Outlet />
     </>
   );

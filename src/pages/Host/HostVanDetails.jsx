@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Link, json, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-export default function HostVanDetail() {
+export default function HostVanDetails() {
   const { id } = useParams();
   const [currentVan, setCurrentVan] = useState(null);
 
