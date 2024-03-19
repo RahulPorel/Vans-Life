@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Vans from "./pages/Vans/Vans";
@@ -10,6 +10,8 @@ import Reviews from "./pages/Host/Reviews";
 import Layout from "./components/Layout/Layout.jsx";
 import HostLayout from "./components/HostLayout/HostLayout.jsx";
 import "../server.js";
+import HostVanDetails from "./pages/Host/HostVanDetails.jsx";
+import HostVan from "./pages/Host/HostVan.jsx";
 
 function App() {
   return (
@@ -24,9 +26,9 @@ function App() {
           <Route path="host" element={<HostLayout />}>
             <Route index element={<Dashboard />} />
             <Route path="income" element={<Income />} />
-            <Route path="views" element={<Views />} />
-
             <Route path="reviews" element={<Reviews />} />
+            <Route path="vans" element={<HostVan />} />
+            <Route path="vans/:id" element={<HostVanDetails />} />
           </Route>
         </Route>
       </Routes>
