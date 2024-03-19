@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { json, useParams } from "react-router-dom";
+import { Link, json, useParams } from "react-router-dom";
 
-const HostVanDetails = () => {
+export default function HostVanDetail() {
   const { id } = useParams();
   const [currentVan, setCurrentVan] = useState(null);
 
@@ -11,7 +11,28 @@ const HostVanDetails = () => {
       .then((data) => setCurrentVan(data.vans));
   }, []);
 
-  return <div>HostVanDetails</div>;
-};
+  if (!currentVan) {
+    return <h1>Loading...</h1>;
+  }
 
-export default HostVanDetails;
+  return (
+    <section>
+      <Link to=".." className="back-button">
+        &larr; <span>Back to all vans</span>
+      </Link>
+
+      <div className="host-van-detail-layout-container">
+        <div className="host-van-detail">
+          <img src={currentVan.imageUrl} />
+          <div className="host-van-detail-info-text">
+            <i className={`van-type van-type-${currentVan.type}`}>
+              {currentVan.type}
+            </i>
+            <h3>{currentVan.name}</h3>
+            <h4>${currentVan.price}/day</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
