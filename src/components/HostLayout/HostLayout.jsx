@@ -1,10 +1,6 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
-// import {  } from "react-router-dom";
-// import Dashboard from "../pages/Host/Dashboard";
-// import Income from "../pages/Host/Income";
-// import Reviews from "../pages/Host/Reviews";
-
+import "./HostLayout.css";
 const HostLayout = () => {
   return (
     <>
