@@ -24,7 +24,7 @@ export default function Vans() {
         to={van.id}
         aria-label={`View details for ${van.name}, 
          priced at $${van.price} per day`}
-        state={{ search: searchParams.toString() }}
+        state={{ search: searchParams.toString(), filterNa: typeFilter }}
       >
         <img src={van.imageUrl} alt={`Image of ${van.name}`} />
         <div className="van-info">

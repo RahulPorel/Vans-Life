@@ -6,7 +6,6 @@ export default function VanDetail() {
   const params = useParams();
   const location = useLocation();
 
-
   const [van, setVan] = useState(null);
 
   useEffect(() => {
@@ -15,15 +14,19 @@ export default function VanDetail() {
       .then((data) => setVan(data.vans));
   }, [params.id]);
 
+  const search = `..?${location.state?.search}` || "";
+  const displayFilterName = location.state.filterNa;
+  // console.log(location.state.filterNa);
+
   return (
     <div className="van-detail-container">
-      <Link
-        to={`..?${location.state.search}`}
-        relative="path"
-        className="back-button"
-      >
+      <Link to={search} relative="path" className="back-button">
         &larr;
-        <span>Back to all vans</span>
+        {!location.state.filterNa === "" ? (
+          <span>Back to all vans</span>
+        ) : (
+          <span>Back to all {displayFilterName} vans</span>
+        )}
       </Link>
       {van ? (
         <div className="van-detail">
