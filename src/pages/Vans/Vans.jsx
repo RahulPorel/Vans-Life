@@ -24,7 +24,7 @@ export default function Vans() {
       <Link
         to={`/vans/${van.id}`}
         aria-label={`View details for ${van.name}, 
- priced at $${van.price} per day`}
+         priced at $${van.price} per day`}
       >
         <img src={van.imageUrl} alt={`Image of ${van.name}`} />
         <div className="van-info">
@@ -56,9 +56,12 @@ export default function Vans() {
         <NavLink className="van-type rugged" to="?type=rugged">
           Rugged
         </NavLink>
-        <NavLink className="van-type clear-filters" to=".">
-          Clear
-        </NavLink>
+
+        {typeFilter ? (
+          <NavLink className="van-type clear-filters" to=".">
+            Clear
+          </NavLink>
+        ) : null}
       </div>
       <div className="van-list">{vanElements}</div>
     </div>
