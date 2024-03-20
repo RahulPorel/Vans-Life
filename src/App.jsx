@@ -27,9 +27,12 @@ function App() {
             <Route index element={<Dashboard />} />
             <Route path="income" element={<Income />} />
             <Route path="reviews" element={<Reviews />} />
-            <Route path="vans" element={<Outlet />}>
-              <Route index element={<HostVans />} />
-              <Route path=":id" element={<HostVanDetails />} />
+
+            <Route path="vans" element={<HostVans />} />
+            <Route path="vans/:id" element={<HostVanDetails />}>
+              <Route index element={<h2>Detailed info goes here</h2>} />
+              <Route path="pricing" element=} />
+              <Route path="photos" element={<h2>Photos goes here</h2>} />
             </Route>
           </Route>
         </Route>

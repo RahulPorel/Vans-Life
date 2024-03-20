@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 
 export default function HostVanDetails() {
   const { id } = useParams();
@@ -32,6 +32,7 @@ export default function HostVanDetails() {
             <h4>${currentVan.price}/day</h4>
           </div>
         </div>
+        <Outlet />
       </div>
     </section>
   );
