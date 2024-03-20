@@ -1,9 +1,18 @@
 /** @format */
 
 import { useEffect, useState } from "react";
-import { Link, NavLink, useSearchParams } from "react-router-dom";
+import {
+  Link,
+  NavLink,
+  useLoaderData,
+  useSearchParams,
+} from "react-router-dom";
 import "./Vans.css";
 import { getVans } from "../../../utlies/api";
+
+export function Loader() {
+  return "Vans data goes here";
+}
 
 export default function Vans() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -11,6 +20,8 @@ export default function Vans() {
   const [laoding, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const typeFilter = searchParams.get("type");
+  const data = useLoaderData();
+  console.log(data);
 
   const displayFilterVans = typeFilter
     ? vans.filter((van) => van.type === typeFilter)
@@ -26,7 +37,7 @@ export default function Vans() {
 
     loadVans();
   }, []);
-<NavLink/>
+  <NavLink />;
 
   const vanElements = displayFilterVans.map((van) => (
     <div key={van.id} className="van-tile">
