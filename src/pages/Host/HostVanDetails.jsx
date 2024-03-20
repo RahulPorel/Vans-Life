@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, Outlet, useParams } from "react-router-dom";
-import "./HostVanDetails.css";
+import "./HostStyles.css";
 
 export default function HostVanDetails() {
   const activeStyles = {

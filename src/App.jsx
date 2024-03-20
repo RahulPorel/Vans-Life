@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Vans from "./pages/Vans/Vans";
@@ -10,7 +10,7 @@ import Reviews from "./pages/Host/Reviews";
 import Layout from "./components/Layout/Layout.jsx";
 import HostLayout from "./components/HostLayout/HostLayout.jsx";
 import "../server.js";
-import HostVanDetails from "./pages/Host/HostVanDetails/HostVanDetails.jsx";
+import HostVanDetails from "./pages/Host/HostVanDetails.jsx";
 import HostVans from "./pages/Host/HostVans.jsx";
 import HostVanPricing from "./pages/Host/HostVanPricing.jsx";
 import HostVanInfo from "./pages/Host/HostVanInfo.jsx";
