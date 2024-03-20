@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link, Outlet, useParams } from "react-router-dom";
+import { Link, NavLink, Outlet, useParams } from "react-router-dom";
+import "./HostVanDetails.css";
 
 export default function HostVanDetails() {
   const { id } = useParams();
@@ -32,6 +33,13 @@ export default function HostVanDetails() {
             <h4>${currentVan.price}/day</h4>
           </div>
         </div>
+
+        <nav className="host-van-detail-nav">
+          <NavLink to="/host/vans/:id"> Details</NavLink>
+          <NavLink to="pricing"> Pricing</NavLink>
+          <NavLink to="photos"> Photos</NavLink>
+        </nav>
+
         <Outlet />
       </div>
     </section>
