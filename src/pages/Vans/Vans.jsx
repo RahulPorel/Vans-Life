@@ -11,33 +11,19 @@ import "./Vans.css";
 import { getVans } from "../../../utlies/api";
 
 export function Loader() {
-  return "Vans data goes here";
+  return getVans();
 }
 
 export default function Vans() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [vans, setVans] = useState([]);
-  const [laoding, setLoading] = useState(false);
+
   const [error, setError] = useState(null);
   const typeFilter = searchParams.get("type");
-  const data = useLoaderData();
-  console.log(data);
+  const vans = useLoaderData();
 
   const displayFilterVans = typeFilter
     ? vans.filter((van) => van.type === typeFilter)
     : vans;
-
-  useEffect(() => {
-    async function loadVans(props) {
-      setLoading(true);
-      const data = await getVans();
-      setVans(data);
-      setLoading(false);
-    }
-
-    loadVans();
-  }, []);
-  <NavLink />;
 
   const vanElements = displayFilterVans.map((van) => (
     <div key={van.id} className="van-tile">
@@ -60,9 +46,7 @@ export default function Vans() {
     </div>
   ));
 
-  if (laoding) {
-    return <h1 aria-live="polite"> Loading...</h1>;
-  }
+ 
 
   if (error) {
     return <h1 aria-live="assertive">There was an error: {error.message}</h1>;
