@@ -7,7 +7,6 @@ export default function Vans() {
   const [vans, setVans] = useState([]);
 
   const typeFilter = searchParams.get("type");
-  console.log(typeFilter);
 
   const displayFilterVans = typeFilter
     ? vans.filter((van) => van.type === typeFilter)
@@ -25,6 +24,7 @@ export default function Vans() {
         to={van.id}
         aria-label={`View details for ${van.name}, 
          priced at $${van.price} per day`}
+        state={{ search: searchParams.toString() }}
       >
         <img src={van.imageUrl} alt={`Image of ${van.name}`} />
         <div className="van-info">
