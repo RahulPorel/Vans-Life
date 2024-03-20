@@ -45,17 +45,37 @@ export default function Vans() {
 
       <div className="van-list-filter-buttons">
         <button
-          className="van-type simple"
+          className={`${
+            typeFilter === "simple"
+              ? "van-type simple selected"
+              : "van-type simple "
+          }`}
           onClick={() => setSearchParams({ type: "simple" })}
         >
           Simple
         </button>
-        <NavLink className="van-type luxury" to="?type=luxury">
+        <button
+          className={`${
+            typeFilter === "luxury"
+              ? "van-type luxury selected"
+              : "van-type luxury "
+          }`}
+          onClick={() => setSearchParams({ type: "luxury" })}
+          to="?type=luxury"
+        >
           Luxury
-        </NavLink>
-        <NavLink className="van-type rugged" to="?type=rugged">
+        </button>
+        <button
+          className={`${
+            typeFilter === "rugged"
+              ? "van-type rugged selected"
+              : "van-type rugged "
+          }`}
+          to="?type=rugged"
+          onClick={() => setSearchParams({ type: "rugged" })}
+        >
           Rugged
-        </NavLink>
+        </button>
 
         {typeFilter ? (
           <NavLink className="van-type clear-filters" to=".">
