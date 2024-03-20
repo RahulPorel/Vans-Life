@@ -1,3 +1,5 @@
+/** @format */
+
 import { useEffect, useState } from "react";
 import { Link, NavLink, useSearchParams } from "react-router-dom";
 import "./Vans.css";
@@ -7,7 +9,7 @@ export default function Vans() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [vans, setVans] = useState([]);
   const [laoding, setLoading] = useState(false);
-
+  const [error, setError] = useState(null);
   const typeFilter = searchParams.get("type");
 
   const displayFilterVans = typeFilter
@@ -15,7 +17,7 @@ export default function Vans() {
     : vans;
 
   useEffect(() => {
-    async function loadVans() {
+    async function loadVans(props) {
       setLoading(true);
       const data = await getVans();
       setVans(data);
@@ -24,6 +26,7 @@ export default function Vans() {
 
     loadVans();
   }, []);
+<NavLink/>
 
   const vanElements = displayFilterVans.map((van) => (
     <div key={van.id} className="van-tile">
@@ -47,7 +50,11 @@ export default function Vans() {
   ));
 
   if (laoding) {
-    return <h1> Loading...</h1>;
+    return <h1 aria-live="polite"> Loading...</h1>;
+  }
+
+  if (error) {
+    return <h1 aria-live="assertive">There was an error: {error.message}</h1>;
   }
 
   return (
