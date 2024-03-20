@@ -1,6 +1,6 @@
 /** @format */
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   Link,
   NavLink,
@@ -11,6 +11,7 @@ import "./Vans.css";
 import { getVans } from "../../../utlies/api";
 
 export function Loader() {
+
   return getVans();
 }
 
@@ -45,8 +46,6 @@ export default function Vans() {
       </Link>
     </div>
   ));
-
- 
 
   if (error) {
     return <h1 aria-live="assertive">There was an error: {error.message}</h1>;

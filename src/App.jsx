@@ -26,6 +26,7 @@ import HostVanPricing from "./pages/Host/HostVanPricing.jsx";
 import HostVanInfo from "./pages/Host/HostVanInfo.jsx";
 import HostVanPhotos from "./pages/Host/HostVanPhotos.jsx";
 import PageNotFound from "./pages/PageNotFound/PageNotFound.jsx";
+import Error from "./components/Error/Error.jsx";
 
 function App() {
   const router = createBrowserRouter(
@@ -33,7 +34,12 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
-        <Route path="vans" element={<Vans />} loader={vansLoader} />
+        <Route
+          path="vans"
+          element={<Vans />}
+          loader={vansLoader}
+          errorElement={<Error />}
+        />
         <Route path="vans/:id" element={<VanDetail />} />
 
         <Route path="host" element={<HostLayout />}>
@@ -41,7 +47,7 @@ function App() {
           <Route path="income" element={<Income />} />
           <Route path="reviews" element={<Reviews />} />
 
-          <Route path="vans" element={<HostVans />} />
+          <Route path="vans" element={<HostVans />}  />
           <Route path="vans/:id" element={<HostVanDetails />}>
             <Route index element={<HostVanInfo />} />
             <Route path="pricing" element={<HostVanPricing />} />
