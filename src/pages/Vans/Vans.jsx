@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useSearchParams } from "react-router-dom";
 import "./Vans.css";
+import { getVans } from "../../../utlies/api";
 
 export default function Vans() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -13,9 +14,12 @@ export default function Vans() {
     : vans;
 
   useEffect(() => {
-    fetch("/api/vans")
-      .then((res) => res.json())
-      .then((data) => setVans(data.vans));
+    async function loadVans() {
+      const data = await getVans();
+      setVans(data);
+    }
+
+    loadVans();
   }, []);
 
   const vanElements = displayFilterVans.map((van) => (
