@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, NavLink, useSearchParams } from "react-router-dom";
 import "./Vans.css";
 
 export default function Vans() {
@@ -9,13 +9,17 @@ export default function Vans() {
   const typeFilter = searchParams.get("type");
   console.log(typeFilter);
 
+  const displayFilterVans = typeFilter
+    ? vans.filter((van) => van.type === typeFilter)
+    : vans;
+
   useEffect(() => {
     fetch("/api/vans")
       .then((res) => res.json())
       .then((data) => setVans(data.vans));
   }, []);
 
-  const vanElements = vans.map((van) => (
+  const vanElements = displayFilterVans.map((van) => (
     <div key={van.id} className="van-tile">
       <Link
         to={`/vans/${van.id}`}
@@ -38,6 +42,21 @@ export default function Vans() {
   return (
     <div className="van-list-container">
       <h1>Explore our van options</h1>
+
+      <div className="van-list-filter-buttons">
+        <NavLink className="van-type simple" to="?type=simple">
+          simple
+        </NavLink>
+        <NavLink className="van-type luxury" to="?type=luxury">
+          luxury
+        </NavLink>
+        <NavLink className="van-type rugged" to="?type=rugged">
+          rugged
+        </NavLink>
+        <NavLink className="van-type clear-filters" to=".">
+          Clear
+        </NavLink>
+      </div>
       <div className="van-list">{vanElements}</div>
     </div>
   );
