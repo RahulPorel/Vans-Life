@@ -3,6 +3,12 @@ import { Link, NavLink, Outlet, useParams } from "react-router-dom";
 import "./HostVanDetails.css";
 
 export default function HostVanDetails() {
+  const activeStyles = {
+    fontWeight: "bold",
+    textDecoration: "underline",
+    color: "#161616",
+  };
+
   const { id } = useParams();
   const [currentVan, setCurrentVan] = useState(null);
 
@@ -35,9 +41,25 @@ export default function HostVanDetails() {
         </div>
 
         <nav className="host-van-detail-nav">
-          <NavLink to="/host/vans/:id"> Details</NavLink>
-          <NavLink to="pricing"> Pricing</NavLink>
-          <NavLink to="photos"> Photos</NavLink>
+          <NavLink
+            to="/host/vans/:id"
+            style={({ isActive }) => (isActive ? activeStyles : null)}
+            end
+          >
+            Details
+          </NavLink>
+          <NavLink
+            to="pricing"
+            style={({ isActive }) => (isActive ? activeStyles : null)}
+          >
+            Pricing
+          </NavLink>
+          <NavLink
+            to="photos"
+            style={({ isActive }) => (isActive ? activeStyles : null)}
+          >
+            Photos
+          </NavLink>
         </nav>
 
         <Outlet />
