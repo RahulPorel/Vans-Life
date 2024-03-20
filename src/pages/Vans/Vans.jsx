@@ -44,14 +44,17 @@ export default function Vans() {
       <h1>Explore our van options</h1>
 
       <div className="van-list-filter-buttons">
-        <NavLink className="van-type simple" to="?type=simple">
-          simple
-        </NavLink>
+        <button
+          className="van-type simple"
+          onClick={() => setSearchParams({ type: "simple" })}
+        >
+          Simple
+        </button>
         <NavLink className="van-type luxury" to="?type=luxury">
-          luxury
+          Luxury
         </NavLink>
         <NavLink className="van-type rugged" to="?type=rugged">
-          rugged
+          Rugged
         </NavLink>
         <NavLink className="van-type clear-filters" to=".">
           Clear
