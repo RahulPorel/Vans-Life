@@ -16,7 +16,6 @@ export default function VanDetail() {
 
   const search = `..?${location.state?.search}` || "";
   const displayFilterName = location.state.filterNa;
-  // console.log(location.state.filterNa);
 
   return (
     <div className="van-detail-container">
