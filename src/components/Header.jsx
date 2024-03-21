@@ -1,5 +1,5 @@
-import React from "react";
 import { NavLink, Link } from "react-router-dom";
+
 const Header = () => {
   const activeStyles = {
     fontWeight: "bold",
@@ -30,12 +30,11 @@ const Header = () => {
           style={({ isActive }) => (isActive ? activeStyles : null)}
           to="/vans"
         >
-          Vans
-        </NavLink>
-        <Link>
-          <div className="login-icon">
-            <i className="fa-solid fa-user"></i>
-          </div>
+          {" "}
+          Vans{" "}
+        </NavLink>{" "}
+        <Link to="login" className="login-link">
+          <i className="fa-solid fa-user login-icon"></i>
         </Link>
       </nav>
     </header>

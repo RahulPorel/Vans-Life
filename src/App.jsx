@@ -1,12 +1,9 @@
 /** @format */
 
-import React from "react";
 import {
   createBrowserRouter,
   RouterProvider,
   createRoutesFromElements,
-  BrowserRouter,
-  Routes,
   Route,
 } from "react-router-dom";
 
