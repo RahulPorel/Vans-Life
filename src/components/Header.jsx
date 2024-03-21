@@ -1,5 +1,5 @@
-import { Link, NavLink } from "react-router-dom";
-
+import React from "react";
+import { NavLink, Link } from "react-router-dom";
 const Header = () => {
   const activeStyles = {
     fontWeight: "bold",
@@ -12,6 +12,7 @@ const Header = () => {
       <Link className="site-logo" to="/">
         #VanLife
       </Link>
+
       <nav>
         <NavLink
           to="/host"
@@ -31,6 +32,11 @@ const Header = () => {
         >
           Vans
         </NavLink>
+        <Link>
+          <div className="login-icon">
+            <i className="fa-solid fa-user"></i>
+          </div>
+        </Link>
       </nav>
     </header>
   );

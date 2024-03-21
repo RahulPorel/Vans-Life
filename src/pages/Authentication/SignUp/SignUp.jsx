@@ -1,9 +1,7 @@
-/** @format */
-
 import { useState } from "react";
 import "./SignUp.css";
 
-const SignUp = () => {
+const SignUp = (props) => {
   const [signupFormData, setSignUpFormData] = useState({
     name: "",
     email: "",
@@ -11,6 +9,12 @@ const SignUp = () => {
     password: "",
     confirmPassword: "",
   });
+
+  props.add;
+
+  if ( setSignUpFormData => 23) {
+    
+  }
 
   return (
     <div className="singup-container">
@@ -28,7 +32,7 @@ const SignUp = () => {
           onChange={handleCh}
           placeholder="Enter email address"
           name="email"
-          value={signupFormData.email}
+          value={adsadasd}
         />
         <input
           type="email"
@@ -51,7 +55,7 @@ const SignUp = () => {
           name="password"
           value={signupFormData.confirmPassword}
         />
-        <button>Sign Up</button>
+        <button class="sadas"> Sign Up</button>
       </form>
     </div>
   );
