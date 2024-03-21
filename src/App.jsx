@@ -31,15 +31,10 @@ import Error from "./components/Error/Error.jsx";
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<Layout />}>
+      <Route path="/" element={<Layout />} errorElement={<Error />}>
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
-        <Route
-          path="vans"
-          element={<Vans />}
-          loader={vansLoader}
-          errorElement={<Error />}
-        />
+        <Route path="vans" element={<Vans />} loader={vansLoader} />
         <Route path="vans/:id" element={<VanDetail />} />
 
         <Route path="host" element={<HostLayout />}>
@@ -47,7 +42,7 @@ function App() {
           <Route path="income" element={<Income />} />
           <Route path="reviews" element={<Reviews />} />
 
-          <Route path="vans" element={<HostVans />}  />
+          <Route path="vans" element={<HostVans />} />
           <Route path="vans/:id" element={<HostVanDetails />}>
             <Route index element={<HostVanInfo />} />
             <Route path="pricing" element={<HostVanPricing />} />

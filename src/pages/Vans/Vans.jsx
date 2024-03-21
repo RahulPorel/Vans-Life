@@ -11,7 +11,6 @@ import "./Vans.css";
 import { getVans } from "../../../utlies/api";
 
 export function Loader() {
-
   return getVans();
 }
 
