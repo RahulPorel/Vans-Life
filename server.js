@@ -1,3 +1,5 @@
+/** @format */
+
 import { createServer, Model } from "miragejs";
 
 createServer({
@@ -80,6 +82,7 @@ createServer({
 
     this.get("/vans", (schema, request) => {
       return schema.vans.all();
+      // return new Response(400, {}, { error: "Error fetching data" });
     });
 
     this.get("/vans/:id", (schema, request) => {
