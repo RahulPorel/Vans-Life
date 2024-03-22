@@ -1,18 +1,21 @@
-.login-container {
+.login-container,
+.signup-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-inline: 27px;
 }
 
-.login-form {
+.login-form,
+.signup-form {
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 500px;
 }
 
-.login-form > input {
+.login-form > input,
+.signup-form > input {
   border: 1px solid rgba(209, 213, 219);
   height: 40px;
   text-indent: 10px;
@@ -21,20 +24,24 @@
   font-weight: 400;
 }
 
-.login-form > input:focus {
+.login-form > input:focus,
+.signup-form > input:focus {
   outline: none;
 }
 
-.login-form > input:first-of-type {
+.login-form > input:first-of-type,
+.signup-form > input:first-of-type {
   border-radius: 6px 6px 0px 0px;
 }
 
-.login-form > input:last-of-type {
+.login-form > input:last-of-type,
+.signup-form > input:last-of-type {
   border-radius: 0px 0px 6px 6px;
   border-top: none;
 }
 
-.login-form > button {
+.login-form > button,
+.signup-form > button {
   background-color: #ff8c38;
   border: none;
   border-radius: 6px;
@@ -44,13 +51,15 @@
   font-family: "Inter", sans-serif;
 }
 
-.createAcc-Btn {
+.createAcc-Btn,
+.loginAcc-Btn {
   font-size: 18px;
   color: #0e4eb5;
   text-decoration: none;
   transition: all ease-in 35ms;
 }
-.createAcc-Btn:hover {
+.createAcc-Btn:hover,
+.loginAcc-Btn:hover {
   scale: 1.1;
   color: #2a82d4;
 }
