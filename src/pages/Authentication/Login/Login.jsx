@@ -26,7 +26,7 @@ const Login = () => {
     setRmLogin(!rmLogin);
   };
 
-  // / /sign URLSearchParams
+  //sign
 
   const [signupFormData, setSignUpFormData] = useState({
     name: "",
@@ -49,7 +49,6 @@ const Login = () => {
     }));
   };
 
-  console.log(rmLogin);
   return !rmLogin ? (
     <div className="login-container">
       <h1>Login to your account</h1>
@@ -95,6 +94,7 @@ const Login = () => {
           name="email"
           value={signupFormData.email}
         />
+
         <input
           type="email"
           onChange={handleChSignUp}
@@ -103,17 +103,18 @@ const Login = () => {
           value={signupFormData.confirmEmail}
         />
         <input
-          type="password"
-          onChange={handleChSignUp}
-          placeholder="Enter confirm password "
-          name="email"
-          value={signupFormData.password}
-        />
-        <input
           type="text"
           onChange={handleChSignUp}
           placeholder="Enter password"
           name="password"
+          value={signupFormData.password}
+        />
+
+        <input
+          type="password"
+          onChange={handleChSignUp}
+          placeholder="Enter confirm password "
+          name="confirmPassword"
           value={signupFormData.confirmPassword}
         />
 
