@@ -58,7 +58,7 @@ const Login = () => {
   return !rmLogin ? (
     <div className="login-container">
       <h1>Login to your account</h1>
-      {message && <h3 className="red">{message}</h3>}
+      {message && <h3 style={{ color: "red" }}>{message}</h3>}
       <form className="login-form" onSubmit={handleSubmit} action="#">
         <input
           type="email"
