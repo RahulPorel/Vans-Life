@@ -56,8 +56,6 @@ const Login = () => {
     setShowPass(!showPass); //true ho raha hain
   };
 
-  console.log(showPass);
-
   //sign
 
   const [signupFormData, setSignUpFormData] = useState({
