@@ -20,23 +20,18 @@ const Login = () => {
 
   const message = useLoaderData();
 
-  const dbName = localStorage.getItem("name");
-  const dbEmail = localStorage.getItem("email");
   const dbCEmail = localStorage.getItem("confirmEmail");
-  const dbPass = localStorage.getItem("confirmEmail");
-  const dbCPass = localStorage.getItem("confirmEmail");
+  const dbCPass = localStorage.getItem("confirmPassWord");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setStatus("submitting");
     setError(null);
-    // {
-    //   dbName === loginFormData.name &&
-    //     dbCEmail === loginFormData.email &&
-    //     dbCPass === loginFormData.password;
-    // }
 
-    if (dbCEmail === loginFormData.email && dbName === loginFormData.password) {
+    if (
+      dbCEmail === loginFormData.email &&
+      dbCPass === loginFormData.password
+    ) {
       localStorage.setItem("loggedin", true);
       window.location.href = "host";
     } else {
@@ -137,6 +132,7 @@ const Login = () => {
       <form className="signup-form" onSubmit={handleSubmitSignUp} action="#">
         <input
           type="name"
+          required
           onChange={handleChSignUp}
           placeholder="Enter name "
           name="name"
@@ -164,6 +160,7 @@ const Login = () => {
 
         <input
           type="email"
+          required
           onChange={handleChSignUp}
           placeholder="Enter your confirm email"
           name="confirmEmail"
