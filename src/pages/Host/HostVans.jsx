@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { getVans } from "../../../utlies/api";
 import { requireAuth } from "../../../utlies/auth";

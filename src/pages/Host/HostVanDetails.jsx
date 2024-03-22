@@ -1,27 +1,22 @@
-import { useEffect, useState } from "react";
-import { Link, NavLink, Outlet, useParams } from "react-router-dom";
+// import { useEffect, useState } from "react";
+import { useParams, Link, NavLink, Outlet, useParams } from "react-router-dom";
 import "./HostStyles.css";
+import { getHostVans } from "../../../utlies/api";
 import { requireAuth } from "../../../utlies/auth";
 
+export async function loader({ params }) {
+  await requireAuth();
+  return getHostVans(params.id);
+}
+
 export default function HostVanDetails() {
+  const currentVan = useLoaderData();
+
   const activeStyles = {
     fontWeight: "bold",
     textDecoration: "underline",
     color: "#161616",
   };
-
-  const { id } = useParams();
-  const [currentVan, setCurrentVan] = useState(null);
-
-  useEffect(() => {
-    fetch(`/api/host/vans/${id}`)
-      .then((res) => res.json())
-      .then((data) => setCurrentVan(data.vans));
-  }, []);
-
-  if (!currentVan) {
-    return <h1>Loading...</h1>;
-  }
 
   return (
     <section>
