@@ -19,7 +19,6 @@ const Login = () => {
   const [rmLogin, setRmLogin] = useState(false);
 
   const message = useLoaderData();
-
   const dbCEmail = localStorage.getItem("confirmEmail");
   const dbCPass = localStorage.getItem("confirmPassWord");
 

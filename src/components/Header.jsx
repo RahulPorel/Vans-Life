@@ -11,7 +11,10 @@ const Header = () => {
     localStorage.setItem("loggedin", false);
     localStorage.removeItem("confirmEmail");
     localStorage.removeItem("confirmPassWord");
-    window.location.href = "/";
+    localStorage.removeItem("name");
+    localStorage.removeItem("email");
+
+    window.location.href = "/login";
     localStorage.removeItem("loggedin");
   };
 
@@ -28,9 +31,7 @@ const Header = () => {
           {localStorage.getItem("name")} &nbsp;
           <i className="fa-solid fa-right-from-bracket"></i>
         </button>
-      ) : (
-        ""
-      )}
+      ) : null}
 
       <nav>
         <NavLink
