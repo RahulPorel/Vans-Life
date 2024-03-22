@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import "./Login.css";
+import { loginUser } from "../../../../utlies/api";
 
 export function loader({ request }) {
   return new URL(request.url).searchParams.get("message");
@@ -11,12 +12,17 @@ const Login = () => {
     email: "",
     password: "",
   });
-
+  const [status, setStatus] = useState("idle");
   const message = useLoaderData();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(loginFormData);
+    setStatus("submitting");
+    // console.log(loginFormData);
+    loginUser(loginFormData)
+      .then((data) => console.log(data))
+      .catch()
+      .finally(() => setStatus("idle"));
   };
 
   const handleCh = (e) => {
@@ -74,7 +80,9 @@ const Login = () => {
           name="password"
           value={loginFormData.password}
         />
-        <button>Login</button>
+        <button disabled={status === "submitting"}>
+          {status === "submitting" ? "Logging in..." : "Log in"}
+        </button>
       </form>
 
       <p> Don't have an account </p>
@@ -86,6 +94,8 @@ const Login = () => {
   ) : (
     <div className="signup-container">
       <h1>Sign up to your account</h1>
+      {message && <h3 style={{ color: "red" }}>{message}</h3>}
+
       <form className="signup-form" onSubmit={handleSubmitSignUp} action="#">
         <input
           type="name"
