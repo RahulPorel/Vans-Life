@@ -13,7 +13,9 @@ import Layout from "./components/Layout/Layout.jsx";
 import About from "./pages/About/About.jsx";
 import Home from "./pages/Home/Home.jsx";
 import Dashboard from "./pages/Host/Dashboard.jsx";
-import HostVanDetails from "./pages/Host/HostVanDetails.jsx";
+import HostVanDetails, {
+  loader as hostVanDetailLoader,
+} from "./pages/Host/HostVanDetails.jsx";
 import HostVanInfo from "./pages/Host/HostVanInfo.jsx";
 import HostVanPhotos from "./pages/Host/HostVanPhotos.jsx";
 import HostVanPricing from "./pages/Host/HostVanPricing.jsx";
@@ -66,9 +68,7 @@ function App() {
           <Route
             path="vans/:id"
             element={<HostVanDetails />}
-            loader={async () => {
-              return await requireAuth();
-            }}
+            loader={hostVanDetailLoader}
           >
             <Route
               index

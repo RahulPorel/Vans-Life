@@ -1,8 +1,8 @@
 // import { useEffect, useState } from "react";
-import { useParams, Link, NavLink, Outlet, useParams } from "react-router-dom";
-import "./HostStyles.css";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import { getHostVans } from "../../../utlies/api";
 import { requireAuth } from "../../../utlies/auth";
+import "./HostStyles.css";
 
 export async function loader({ params }) {
   await requireAuth();
