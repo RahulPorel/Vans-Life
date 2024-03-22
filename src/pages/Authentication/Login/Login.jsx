@@ -18,7 +18,6 @@ const Login = () => {
   const message = useLoaderData();
   const dbCEmail = localStorage.getItem("confirmEmail");
   const dbCPass = localStorage.getItem("confirmPassWord");
-  const [showPass, setShowPass] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -53,7 +52,7 @@ const Login = () => {
     const passInput = document.getElementById("cPass-ch");
     const toggleShowEyeIcon = document.querySelector("#showEye");
     const toggleHideEyeIcon = document.querySelector("#hideEye");
-    setShowPass(!showPass);
+
     if (passInput.type === "text") {
       passInput.type = "password";
       toggleShowEyeIcon.style.display = "inline";
@@ -220,6 +219,7 @@ const Login = () => {
           onClick={handlePassShow}
           className="fa-regular fa-eye cPass-eye"
         ></i>
+
         <i
           id="showEye"
           onClick={handlePassShow}
