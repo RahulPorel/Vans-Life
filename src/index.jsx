@@ -27,6 +27,7 @@ import VanDetail, {
   loader as VanDetailLoader,
 } from "./pages/Vans/VanDetail.jsx";
 import Vans, { Loader as vansLoader } from "./pages/Vans/Vans.jsx";
+import Login from "./pages/Authentication/Login/Login.jsx";
 
 function App() {
   const router = createBrowserRouter(
@@ -34,6 +35,8 @@ function App() {
       <Route path="/" element={<Layout />} errorElement={<Error />}>
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
+        <Route path="login" element={<Login />} />
+
         <Route path="vans" element={<Vans />} loader={vansLoader} />
         <Route
           path="vans/:id"
