@@ -1,27 +1,30 @@
 import {
-  createBrowserRouter,
-  RouterProvider,
-  createRoutesFromElements,
   Route,
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
 } from "react-router-dom";
 
-import Home from "./pages/Home/Home";
-import About from "./pages/About/About";
-import Vans, { Loader as vansLoader } from "./pages/Vans/Vans";
-import VanDetail, { loader as VanDetailLoader } from "./pages/Vans/VanDetail";
-import Dashboard from "./pages/Host/Dashboard";
-import Income from "./pages/Host/Income";
-import Reviews from "./pages/Host/Reviews";
-import Layout from "./components/Layout/Layout.jsx";
-import HostLayout from "./components/HostLayout/HostLayout.jsx";
 import "../server.js";
+import { requireAuth } from "../utlies/auth.js";
+import Error from "./components/Error/Error.jsx";
+import HostLayout from "./components/HostLayout/HostLayout.jsx";
+import Layout from "./components/Layout/Layout.jsx";
+import About from "./pages/About/About.jsx";
+import Home from "./pages/Home/Home.jsx";
+import Dashboard from "./pages/Host/Dashboard.jsx";
 import HostVanDetails from "./pages/Host/HostVanDetails.jsx";
-import HostVans from "./pages/Host/HostVans.jsx";
-import HostVanPricing from "./pages/Host/HostVanPricing.jsx";
 import HostVanInfo from "./pages/Host/HostVanInfo.jsx";
 import HostVanPhotos from "./pages/Host/HostVanPhotos.jsx";
+import HostVanPricing from "./pages/Host/HostVanPricing.jsx";
+import HostVans, { loader as hostVansLoader } from "./pages/Host/HostVans.jsx";
+import Income from "./pages/Host/Income.jsx";
+import Reviews from "./pages/Host/Reviews.jsx";
 import PageNotFound from "./pages/PageNotFound/PageNotFound.jsx";
-import Error from "./components/Error/Error.jsx";
+import VanDetail, {
+  loader as VanDetailLoader,
+} from "./pages/Vans/VanDetail.jsx";
+import Vans, { Loader as vansLoader } from "./pages/Vans/Vans.jsx";
 
 function App() {
   const router = createBrowserRouter(
@@ -41,7 +44,7 @@ function App() {
             index
             element={<Dashboard />}
             loader={async () => {
-              return null;
+              return await requireAuth();
             }}
           />
           <Route
@@ -59,13 +62,7 @@ function App() {
             }}
           />
 
-          <Route
-            path="vans"
-            element={<HostVans />}
-            loader={async () => {
-              return null;
-            }}
-          />
+          <Route path="vans" element={<HostVans />} loader={hostVansLoader} />
           <Route
             path="vans/:id"
             element={<HostVanDetails />}
