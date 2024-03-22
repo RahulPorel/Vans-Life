@@ -30,10 +30,13 @@ const Login = () => {
     e.preventDefault();
     setStatus("submitting");
     setError(null);
+    // {
+    //   dbName === loginFormData.name &&
+    //     dbCEmail === loginFormData.email &&
+    //     dbCPass === loginFormData.password;
+    // }
 
-    // localStorage.getItem("confirmPassWord");
-
-    if (dbCEmail === loginFormData.email) {
+    if (dbCEmail === loginFormData.email && dbName === loginFormData.password) {
       localStorage.setItem("loggedin", true);
       window.location.href = "host";
     } else {
