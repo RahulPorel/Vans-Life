@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { Link, useLoaderData, useNavigate, redirect } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import "./Login.css";
-// import { requireAuth } from "../../../../utlies/auth";
-// import { loginUser } from "../../../../utlies/api";
 
 export function loader({ request }) {
   return new URL(request.url).searchParams.get("message");
@@ -17,7 +15,6 @@ const Login = () => {
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState(null);
   const [rmLogin, setRmLogin] = useState(false);
-
   const message = useLoaderData();
   const dbCEmail = localStorage.getItem("confirmEmail");
   const dbCPass = localStorage.getItem("confirmPassWord");
@@ -203,6 +200,7 @@ const Login = () => {
           placeholder="Enter confirm password "
           name="confirmPassword"
           value={signupFormData.confirmPassword}
+          id="cPass-ch"
         />
 
         {showPass ? (
