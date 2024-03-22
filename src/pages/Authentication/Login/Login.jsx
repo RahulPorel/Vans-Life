@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import "./Login.css";
 const Login = () => {
   const [loginFormData, SetLoginFormData] = useState({
@@ -6,14 +8,23 @@ const Login = () => {
     password: "",
   });
 
-  const handleCh = () => {
-    console.log("hand;ed");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(loginFormData);
+  };
+
+  const handleCh = (e) => {
+    const { name, value } = e.target;
+    SetLoginFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   return (
     <div className="login-container">
       <h1>Login to your account</h1>
-      <form action="">
+      <form onSubmit={handleSubmit} action="#">
         <input
           type="email"
           onChange={handleCh}
