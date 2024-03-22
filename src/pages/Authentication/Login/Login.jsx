@@ -1,6 +1,4 @@
-/** @format */
-
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Login.css";
 const Login = () => {
   const [loginFormData, SetLoginFormData] = useState({

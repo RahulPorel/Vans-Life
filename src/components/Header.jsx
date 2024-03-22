@@ -30,9 +30,8 @@ const Header = () => {
           style={({ isActive }) => (isActive ? activeStyles : null)}
           to="/vans"
         >
-          {" "}
-          Vans{" "}
-        </NavLink>{" "}
+          Vans
+        </NavLink>
         <Link to="login" className="login-link">
           <i className="fa-solid fa-user login-icon"></i>
         </Link>
