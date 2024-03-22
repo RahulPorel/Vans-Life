@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { loginUser } from "../../../../utlies/api";
 
@@ -13,15 +13,22 @@ const Login = () => {
     password: "",
   });
   const [status, setStatus] = useState("idle");
+  const [error, setError] = useState(null);
+  const [rmLogin, setRmLogin] = useState(false);
   const message = useLoaderData();
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setStatus("submitting");
-    // console.log(loginFormData);
+    setError(null);
+
     loginUser(loginFormData)
-      .then((data) => console.log(data))
-      .catch()
+      .then((data) => {
+        navigate("/host", { replace: true });
+      })
+      .catch((err) => setError(err))
       .finally(() => setStatus("idle"));
   };
 
@@ -32,7 +39,6 @@ const Login = () => {
       [name]: value,
     }));
   };
-  const [rmLogin, setRmLogin] = useState(false);
 
   const createAcc = () => {
     setRmLogin(!rmLogin);
@@ -65,6 +71,20 @@ const Login = () => {
     <div className="login-container">
       <h1>Login to your account</h1>
       {message && <h3 style={{ color: "red" }}>{message}</h3>}
+      {error && (
+        <>
+          <h3 style={{ color: "red" }} className="red">
+            {error.message}{" "}
+            <Link
+              onClick={createAcc}
+              style={{ color: "#2a82d6", textDecoration: "none" }}
+            >
+              Create account{" "}
+            </Link>
+          </h3>
+        </>
+      )}
+
       <form className="login-form" onSubmit={handleSubmit} action="#">
         <input
           type="email"
