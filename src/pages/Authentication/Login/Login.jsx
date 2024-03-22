@@ -21,6 +21,7 @@ const Login = () => {
   const message = useLoaderData();
   const dbCEmail = localStorage.getItem("confirmEmail");
   const dbCPass = localStorage.getItem("confirmPassWord");
+  const [showPass, setShowPass] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -50,6 +51,12 @@ const Login = () => {
   const createAcc = () => {
     setRmLogin(!rmLogin);
   };
+
+  const handlePassShow = () => {
+    setShowPass(!showPass); //true ho raha hain
+  };
+
+  console.log(showPass);
 
   //sign
 
@@ -144,7 +151,6 @@ const Login = () => {
           name="email"
           value={signupFormData.email}
         />
-
         {signupFormData.email === signupFormData.confirmEmail ? (
           <i
             style={{ color: "darkgreen" }}
@@ -156,7 +162,6 @@ const Login = () => {
             className="fa-regular fa-circle-check email-check"
           ></i>
         )}
-
         <input
           type="email"
           required
@@ -183,7 +188,6 @@ const Login = () => {
           name="password"
           value={signupFormData.password}
         />
-
         {signupFormData.password === signupFormData.confirmPassword ? (
           <i
             style={{ color: "darkgreen" }}
@@ -195,7 +199,6 @@ const Login = () => {
             className="fa-regular fa-circle-check pass-check"
           ></i>
         )}
-
         <input
           type="password"
           onChange={handleChSignUp}
@@ -203,6 +206,18 @@ const Login = () => {
           name="confirmPassword"
           value={signupFormData.confirmPassword}
         />
+
+        {showPass ? (
+          <i
+            onClick={handlePassShow}
+            className="fa-regular fa-eye cPass-eye"
+          ></i>
+        ) : (
+          <i
+            onClick={handlePassShow}
+            className="fa-regular  fa-eye-slash cPass-eye"
+          ></i>
+        )}
 
         {signupFormData.confirmPassword === signupFormData.password ? (
           <i
@@ -215,7 +230,6 @@ const Login = () => {
             className="fa-regular fa-circle-check cpass-check"
           ></i>
         )}
-
         <button> Sign Up</button>
       </form>
 

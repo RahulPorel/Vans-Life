@@ -88,4 +88,11 @@
   color: #000;
 }
 
+.cPass-eye {
+  top: 22.55rem;
+  margin-left: 26rem;
+  position: absolute;
+  cursor: pointer;
+}
+
 /* style={{ color: "#2a82d6", textDecoration: "none" }}style={{ color: "red" }}  */
