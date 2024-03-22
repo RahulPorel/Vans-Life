@@ -38,7 +38,7 @@ function App() {
       <Route path="/" element={<Layout />} errorElement={<Error />}>
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
-        <Route path="login" element={<Login />} loader={loginLoader} />
+        <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
 
         <Route path="vans" element={<Vans />} loader={vansLoader} />
@@ -53,7 +53,7 @@ function App() {
             index
             element={<Dashboard />}
             loader={async () => {
-              return await requireAuth();
+              return requireAuth();
             }}
           />
           <Route
@@ -72,6 +72,7 @@ function App() {
           />
 
           <Route path="vans" element={<HostVans />} loader={hostVansLoader} />
+
           <Route
             path="vans/:id"
             element={<HostVanDetails />}

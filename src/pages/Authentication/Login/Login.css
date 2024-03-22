@@ -63,3 +63,29 @@
   scale: 1.1;
   color: #2a82d4;
 }
+.pass-check {
+  top: 20.15rem;
+  margin-left: 28.5rem;
+  position: absolute;
+}
+.cpass-check {
+  top: 22.55rem;
+  margin-left: 28.5rem;
+  position: absolute;
+}
+.email-check {
+  top: 15.2rem;
+  margin-left: 28.5rem;
+  position: absolute;
+}
+.cemail-check {
+  top: 17.7rem;
+  margin-left: 28.5rem;
+  position: absolute;
+}
+.err-msg {
+  display: flex;
+  color: #000;
+}
+
+/* style={{ color: "#2a82d6", textDecoration: "none" }}style={{ color: "red" }}  */

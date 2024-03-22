@@ -7,11 +7,32 @@ const Header = () => {
     color: "#161616",
   };
 
+  const handleLogOut = () => {
+    localStorage.setItem("loggedin", false);
+
+    localStorage.removeItem("confirmEmail");
+    localStorage.removeItem("confirmPassWord");
+
+    window.location.href = "/";
+
+    localStorage.removeItem("loggedin");
+  };
+
+  const isLoggedIn = localStorage.getItem("loggedin");
+
   return (
     <header>
       <Link className="site-logo" to="/">
         #VanLife
       </Link>
+
+      {isLoggedIn ? (
+        <button onClick={handleLogOut}>
+          <i className="fa-solid fa-right-from-bracket"></i>
+        </button>
+      ) : (
+        ""
+      )}
 
       <nav>
         <NavLink

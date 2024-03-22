@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { Link, useLoaderData, useNavigate, redirect } from "react-router-dom";
 import "./Login.css";
-import { loginUser } from "../../../../utlies/api";
+// import { requireAuth } from "../../../../utlies/auth";
+// import { loginUser } from "../../../../utlies/api";
 
 export function loader({ request }) {
   return new URL(request.url).searchParams.get("message");
@@ -12,24 +13,33 @@ const Login = () => {
     email: "",
     password: "",
   });
+
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState(null);
   const [rmLogin, setRmLogin] = useState(false);
+
   const message = useLoaderData();
 
-  const navigate = useNavigate();
+  const dbEmail = localStorage.getItem("confirmEmail");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setStatus("submitting");
     setError(null);
 
-    loginUser(loginFormData)
-      .then((data) => {
-        navigate("/host", { replace: true });
-      })
-      .catch((err) => setError(err))
-      .finally(() => setStatus("idle"));
+    // const dbEmail = localStorage.getItem("confirmEmail");
+    // const dbEmail = localStorage.getItem("confirmEmail");
+    // const dbEmail = localStorage.getItem("confirmEmail");
+
+    // localStorage.getItem("confirmPassWord");
+
+    if (dbEmail === loginFormData.email) {
+      localStorage.setItem("loggedin", true);
+      window.location.href = "host";
+    } else {
+      setError(true);
+      setStatus("idle");
+    }
   };
 
   const handleCh = (e) => {
@@ -56,7 +66,9 @@ const Login = () => {
 
   const handleSubmitSignUp = (e) => {
     e.preventDefault();
-    console.log(signupFormData);
+    localStorage.setItem("confirmEmail", signupFormData.confirmEmail);
+    localStorage.setItem("confirmPassWord", signupFormData.confirmPassword);
+    setRmLogin(!rmLogin);
   };
 
   const handleChSignUp = (e) => {
@@ -67,19 +79,21 @@ const Login = () => {
     }));
   };
 
+  // middleware
+
   return !rmLogin ? (
     <div className="login-container">
       <h1>Login to your account</h1>
-      {message && <h3 style={{ color: "red" }}>{message}</h3>}
+
       {error && (
         <>
-          <h3 style={{ color: "red" }} className="red">
-            {error.message}{" "}
+          <h3 style={{ color: "red" }} className="red err-msg">
+            No user with those credentials found!
             <Link
               onClick={createAcc}
               style={{ color: "#2a82d6", textDecoration: "none" }}
             >
-              Create account{" "}
+              &nbsp; Create account
             </Link>
           </h3>
         </>
@@ -92,7 +106,7 @@ const Login = () => {
           placeholder="Enter email address"
           name="email"
           value={loginFormData.email}
-        />
+        />{" "}
         <input
           type="password"
           onChange={handleCh}
@@ -132,6 +146,18 @@ const Login = () => {
           value={signupFormData.email}
         />
 
+        {signupFormData.email === signupFormData.confirmEmail ? (
+          <i
+            style={{ color: "darkgreen" }}
+            className="fa-regular fa-circle-check email-check"
+          ></i>
+        ) : (
+          <i
+            style={{ color: "red" }}
+            className="fa-regular fa-circle-check email-check"
+          ></i>
+        )}
+
         <input
           type="email"
           onChange={handleChSignUp}
@@ -139,6 +165,17 @@ const Login = () => {
           name="confirmEmail"
           value={signupFormData.confirmEmail}
         />
+        {signupFormData.confirmEmail === signupFormData.email ? (
+          <i
+            style={{ color: "darkgreen" }}
+            className="fa-regular fa-circle-check cemail-check"
+          ></i>
+        ) : (
+          <i
+            style={{ color: "red" }}
+            className="fa-regular fa-circle-check cemail-check"
+          ></i>
+        )}
         <input
           type="text"
           onChange={handleChSignUp}
@@ -147,6 +184,18 @@ const Login = () => {
           value={signupFormData.password}
         />
 
+        {signupFormData.password === signupFormData.confirmPassword ? (
+          <i
+            style={{ color: "darkgreen" }}
+            className="fa-regular fa-circle-check pass-check"
+          ></i>
+        ) : (
+          <i
+            style={{ color: "red" }}
+            className="fa-regular fa-circle-check pass-check"
+          ></i>
+        )}
+
         <input
           type="password"
           onChange={handleChSignUp}
@@ -154,6 +203,18 @@ const Login = () => {
           name="confirmPassword"
           value={signupFormData.confirmPassword}
         />
+
+        {signupFormData.confirmPassword === signupFormData.password ? (
+          <i
+            style={{ color: "darkgreen" }}
+            className="fa-regular fa-circle-check cpass-check"
+          ></i>
+        ) : (
+          <i
+            style={{ color: "red" }}
+            className="fa-regular fa-circle-check cpass-check"
+          ></i>
+        )}
 
         <button> Sign Up</button>
       </form>
