@@ -51,14 +51,14 @@ function App() {
             path="income"
             element={<Income />}
             loader={async () => {
-              return null;
+              return await requireAuth();
             }}
           />
           <Route
             path="reviews"
             element={<Reviews />}
             loader={async () => {
-              return null;
+              return await requireAuth();
             }}
           />
 
@@ -67,28 +67,28 @@ function App() {
             path="vans/:id"
             element={<HostVanDetails />}
             loader={async () => {
-              return null;
+              return await requireAuth();
             }}
           >
             <Route
               index
               element={<HostVanInfo />}
               loader={async () => {
-                return null;
+                return await requireAuth();
               }}
             />
             <Route
               path="pricing"
               element={<HostVanPricing />}
               loader={async () => {
-                return null;
+                return await requireAuth();
               }}
             />
             <Route
               path="photos"
               element={<HostVanPhotos />}
               loader={async () => {
-                return null;
+                return await requireAuth();
               }}
             />
           </Route>

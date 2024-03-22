@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, Outlet, useParams } from "react-router-dom";
 import "./HostStyles.css";
+import { requireAuth } from "../../../utlies/auth";
 
 export default function HostVanDetails() {
   const activeStyles = {
