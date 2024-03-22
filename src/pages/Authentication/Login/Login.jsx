@@ -1,12 +1,18 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import "./Login.css";
+
+export function loader({ request }) {
+  return new URL(request.url).searchParams.get("message");
+}
 
 const Login = () => {
   const [loginFormData, SetLoginFormData] = useState({
     email: "",
     password: "",
   });
+
+  const message = useLoaderData();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -52,6 +58,7 @@ const Login = () => {
   return !rmLogin ? (
     <div className="login-container">
       <h1>Login to your account</h1>
+      {message && <h3 className="red">{message}</h3>}
       <form className="login-form" onSubmit={handleSubmit} action="#">
         <input
           type="email"
