@@ -9,12 +9,9 @@ const Header = () => {
 
   const handleLogOut = () => {
     localStorage.setItem("loggedin", false);
-
     localStorage.removeItem("confirmEmail");
     localStorage.removeItem("confirmPassWord");
-
     window.location.href = "/";
-
     localStorage.removeItem("loggedin");
   };
 
@@ -28,6 +25,7 @@ const Header = () => {
 
       {isLoggedIn ? (
         <button onClick={handleLogOut}>
+          {localStorage.getItem("name")} &nbsp;
           <i className="fa-solid fa-right-from-bracket"></i>
         </button>
       ) : (

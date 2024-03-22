@@ -20,20 +20,20 @@ const Login = () => {
 
   const message = useLoaderData();
 
-  const dbEmail = localStorage.getItem("confirmEmail");
+  const dbName = localStorage.getItem("name");
+  const dbEmail = localStorage.getItem("email");
+  const dbCEmail = localStorage.getItem("confirmEmail");
+  const dbPass = localStorage.getItem("confirmEmail");
+  const dbCPass = localStorage.getItem("confirmEmail");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setStatus("submitting");
     setError(null);
 
-    // const dbEmail = localStorage.getItem("confirmEmail");
-    // const dbEmail = localStorage.getItem("confirmEmail");
-    // const dbEmail = localStorage.getItem("confirmEmail");
-
     // localStorage.getItem("confirmPassWord");
 
-    if (dbEmail === loginFormData.email) {
+    if (dbCEmail === loginFormData.email) {
       localStorage.setItem("loggedin", true);
       window.location.href = "host";
     } else {
@@ -66,6 +66,7 @@ const Login = () => {
 
   const handleSubmitSignUp = (e) => {
     e.preventDefault();
+    localStorage.setItem("name", signupFormData.name);
     localStorage.setItem("confirmEmail", signupFormData.confirmEmail);
     localStorage.setItem("confirmPassWord", signupFormData.confirmPassword);
     setRmLogin(!rmLogin);
