@@ -43,3 +43,14 @@
   color: white;
   font-family: "Inter", sans-serif;
 }
+
+.createAcc-Btn {
+  font-size: 18px;
+  color: #0e4eb5;
+  text-decoration: none;
+  transition: all ease-in 35ms;
+}
+.createAcc-Btn:hover {
+  scale: 1.1;
+  color: #2a82d4;
+}

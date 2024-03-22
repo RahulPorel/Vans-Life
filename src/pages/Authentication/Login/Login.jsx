@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./Login.css";
 const Login = () => {
@@ -24,7 +25,7 @@ const Login = () => {
   return (
     <div className="login-container">
       <h1>Login to your account</h1>
-      <form onSubmit={handleSubmit} action="#">
+      <form className="login-form" onSubmit={handleSubmit} action="#">
         <input
           type="email"
           onChange={handleCh}
@@ -41,6 +42,12 @@ const Login = () => {
         />
         <button>Login</button>
       </form>
+
+      <p>don't have an account </p>
+
+      <Link className="createAcc-Btn" to="signup">
+        Create account
+      </Link>
     </div>
   );
 };
