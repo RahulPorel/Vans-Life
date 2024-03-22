@@ -50,7 +50,19 @@ const Login = () => {
   };
 
   const handlePassShow = () => {
-    setShowPass(!showPass); //true ho raha hain
+    const passInput = document.getElementById("cPass-ch");
+    const toggleShowEyeIcon = document.querySelector("#showEye");
+    const toggleHideEyeIcon = document.querySelector("#hideEye");
+    setShowPass(!showPass);
+    if (passInput.type === "text") {
+      passInput.type = "password";
+      toggleShowEyeIcon.style.display = "inline";
+      toggleHideEyeIcon.style.display = "none";
+    } else {
+      passInput.type = "text";
+      toggleShowEyeIcon.style.display = "none";
+      toggleHideEyeIcon.style.display = "inline";
+    }
   };
 
   //sign
@@ -203,17 +215,16 @@ const Login = () => {
           id="cPass-ch"
         />
 
-        {showPass ? (
-          <i
-            onClick={handlePassShow}
-            className="fa-regular fa-eye cPass-eye"
-          ></i>
-        ) : (
-          <i
-            onClick={handlePassShow}
-            className="fa-regular  fa-eye-slash cPass-eye"
-          ></i>
-        )}
+        <i
+          id="hideEye"
+          onClick={handlePassShow}
+          className="fa-regular fa-eye cPass-eye"
+        ></i>
+        <i
+          id="showEye"
+          onClick={handlePassShow}
+          className="fa-regular fa-eye-slash cPass-eye"
+        ></i>
 
         {signupFormData.confirmPassword === signupFormData.password ? (
           <i
