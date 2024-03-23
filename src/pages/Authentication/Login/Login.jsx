@@ -16,6 +16,7 @@ const Login = () => {
   const [error, setError] = useState(null);
   const [rmLogin, setRmLogin] = useState(false);
   const message = useLoaderData();
+  const [showPass, setShowPass] = useState(null);
   const dbCEmail = localStorage.getItem("confirmEmail");
   const dbCPass = localStorage.getItem("confirmPassWord");
 
@@ -54,10 +55,13 @@ const Login = () => {
     const toggleHideEyeIcon = document.querySelector("#hideEye");
 
     if (passInput.type === "text") {
+      setShowPass(true);
       passInput.type = "password";
       toggleShowEyeIcon.style.display = "inline";
       toggleHideEyeIcon.style.display = "none";
     } else {
+      setShowPass(false);
+
       passInput.type = "text";
       toggleShowEyeIcon.style.display = "none";
       toggleHideEyeIcon.style.display = "inline";
@@ -142,14 +146,15 @@ const Login = () => {
           value={loginFormData.password}
         />
         <i
-          id="hideEye-login"
-          onClick={togglePasShow}
-          className="fa-regular fa-eye cPass-eye"
-        ></i>
-        <i
           id="showEye-login"
           onClick={togglePasShow}
           className="fa-regular fa-eye-slash cPass-eye"
+        ></i>
+        <i
+          id="hideEye-login"
+          onClick={togglePasShow}
+          className="fa-regular fa-eye cPass-eye"
+          style={{ display: "none" }}
         ></i>
         <button disabled={status === "submitting"}>
           {status === "submitting" ? "Logging in..." : "Log in"}
@@ -243,6 +248,7 @@ const Login = () => {
 
         <i
           id="hideEye"
+          style={{ display: "none" }}
           onClick={handlePassShow}
           className="fa-regular fa-eye cPass-eye"
         ></i>
