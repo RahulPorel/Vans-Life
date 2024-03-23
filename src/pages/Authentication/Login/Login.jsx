@@ -16,7 +16,7 @@ const Login = () => {
   const [error, setError] = useState(null);
   const [rmLogin, setRmLogin] = useState(false);
   const message = useLoaderData();
-  const [showPass, setShowPass] = useState(null);
+
   const dbCEmail = localStorage.getItem("confirmEmail");
   const dbCPass = localStorage.getItem("confirmPassWord");
 
@@ -49,19 +49,18 @@ const Login = () => {
     setRmLogin(!rmLogin);
   };
 
+  console.log(message);
+
   const handlePassShow = () => {
     const passInput = document.getElementById("cPass-ch");
     const toggleShowEyeIcon = document.querySelector("#showEye");
     const toggleHideEyeIcon = document.querySelector("#hideEye");
 
     if (passInput.type === "text") {
-      setShowPass(true);
       passInput.type = "password";
       toggleShowEyeIcon.style.display = "inline";
       toggleHideEyeIcon.style.display = "none";
     } else {
-      setShowPass(false);
-
       passInput.type = "text";
       toggleShowEyeIcon.style.display = "none";
       toggleHideEyeIcon.style.display = "inline";
@@ -114,7 +113,7 @@ const Login = () => {
   return !rmLogin ? (
     <div className="login-container">
       <h1>Login to your account</h1>
-
+      {message && <h3 className="red">{message}</h3>}
       {error && (
         <>
           <h3 style={{ color: "red" }} className="red err-msg">

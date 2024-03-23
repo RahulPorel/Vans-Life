@@ -36,10 +36,11 @@ export async function loginUser(creds) {
   if (!res.ok) {
     throw {
       message: data.message,
+
       statusText: res.statusText,
       status: res.status,
     };
   }
-
+  console.log(data.message);
   return data;
 }
