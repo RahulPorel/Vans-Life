@@ -13,7 +13,6 @@ const Header = () => {
     localStorage.removeItem("confirmPassWord");
     localStorage.removeItem("name");
     localStorage.removeItem("email");
-
     window.location.href = "/login";
     localStorage.removeItem("loggedin");
   };
@@ -27,7 +26,7 @@ const Header = () => {
       </Link>
 
       {isLoggedIn ? (
-        <button onClick={handleLogOut}>
+        <button className="user-login-name" onClick={handleLogOut}>
           {localStorage.getItem("name")} &nbsp;
           <i className="fa-solid fa-right-from-bracket"></i>
         </button>
@@ -38,7 +37,7 @@ const Header = () => {
           to="/host"
           style={({ isActive }) => (isActive ? activeStyles : null)}
         >
-          Host
+          Admin
         </NavLink>
         <NavLink
           to="/about"

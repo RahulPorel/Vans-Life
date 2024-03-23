@@ -60,3 +60,11 @@ main {
   border-radius: 50%;
   border: 0.1px solid black;
 } */
+.user-login-name {
+  outline: none;
+  cursor: pointer;
+  border: none;
+  color: rgb(245, 72, 41);
+  font-weight: 600;
+  background: none;
+}
