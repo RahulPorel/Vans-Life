@@ -96,3 +96,11 @@
 }
 
 /* style={{ color: "#2a82d6", textDecoration: "none" }}style={{ color: "red" }}  */
+
+#showEye-login,
+#hideEye-login {
+  top: 15.05rem;
+  margin-left: 28.5rem;
+  position: absolute;
+  cursor: pointer;
+}

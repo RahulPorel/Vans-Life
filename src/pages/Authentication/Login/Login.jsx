@@ -64,6 +64,22 @@ const Login = () => {
     }
   };
 
+  const togglePasShow = () => {
+    const passInput = document.getElementById("pass-ch");
+    const toggleShowEyeIcon = document.querySelector("#showEye-login  ");
+    const toggleHideEyeIcon = document.querySelector("#hideEye-login");
+
+    if (passInput.type === "text") {
+      passInput.type = "password";
+      toggleShowEyeIcon.style.display = "inline";
+      toggleHideEyeIcon.style.display = "none";
+    } else {
+      passInput.type = "text";
+      toggleShowEyeIcon.style.display = "none";
+      toggleHideEyeIcon.style.display = "inline";
+    }
+  };
+
   //sign
 
   const [signupFormData, setSignUpFormData] = useState({
@@ -90,8 +106,7 @@ const Login = () => {
     }));
   };
 
-  // middleware
-
+  // login form
   return !rmLogin ? (
     <div className="login-container">
       <h1>Login to your account</h1>
@@ -123,8 +138,19 @@ const Login = () => {
           onChange={handleCh}
           placeholder="Enter password"
           name="password"
+          id="pass-ch"
           value={loginFormData.password}
         />
+        <i
+          id="hideEye-login"
+          onClick={togglePasShow}
+          className="fa-regular fa-eye cPass-eye"
+        ></i>
+        <i
+          id="showEye-login"
+          onClick={togglePasShow}
+          className="fa-regular fa-eye-slash cPass-eye"
+        ></i>
         <button disabled={status === "submitting"}>
           {status === "submitting" ? "Logging in..." : "Log in"}
         </button>
@@ -137,6 +163,7 @@ const Login = () => {
       </Link>
     </div>
   ) : (
+    // sign up form
     <div className="signup-container">
       <h1>Sign up to your account</h1>
       {message && <h3 style={{ color: "red" }}>{message}</h3>}
