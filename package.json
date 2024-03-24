@@ -1,6 +1,7 @@
 {
   "name": "project",
   "homepage": "https://rahulporel.github.io/Vans-Life/",
+  "private": false,
   "dependencies": {
     "@types/smtp-server": "^3.5.10",
     "gh-pages": "^6.1.1",
