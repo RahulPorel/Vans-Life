@@ -1,0 +1,171 @@
+
+.host-income {
+   padding-inline: 1.625rem;
+   color: #161616;
+ }
+ 
+ .host-income--title {
+   margin-block: 3vh;
+ }
+ 
+ .host-income--filter {
+   color: #4d4d4d;
+   margin-bottom: 2vh;
+ }
+ 
+ .host-income--filter span {
+   text-decoration: underline;
+   font-weight: bold;
+ }
+ 
+ .host-income--value {
+   font-size: 2.375rem;
+   color: #161616;
+   font-weight: 900;
+ }
+ 
+ .host-income--graph {
+   margin-block: 2vh;
+   position: relative;
+   max-width: 31.25rem;
+ }
+ 
+ .host-income-graph-amounts {
+   display: grid;
+   grid-template-columns: 1fr;
+ }
+ 
+ .graph-amount-item {
+   margin-top: 4vh;
+   display: grid;
+   grid-template-columns: 10% auto;
+   align-items: baseline;
+ }
+ 
+ .graph-amount-title {
+   width: fit-content;
+ }
+ 
+ .graph-amount-row {
+   height: 0.125rem;
+   width: 100%;
+   background: url('../assets/line.svg') no-repeat;
+   background-size: 100% auto;
+ }
+ 
+ 
+ .host-income-graph-values {
+   position: absolute;
+   bottom: 1%;
+   right: 0;
+   width: 28.125rem;
+   height: 85%;
+   display: flex;
+   align-items: end;
+   gap: 5%;
+ }
+ 
+ .column {
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: end;
+   gap: 2rem;
+   position: relative;
+   
+ }
+ 
+ .column-month {
+   position: absolute;
+   bottom: -2rem;
+ }
+ 
+ .graph-column {
+   width: 3.5rem;
+   border-radius: 0.3125rem;
+   background: #FFEAD0;
+ }
+ 
+ .graph-column.highlight {
+   background: #FF8C38;
+ }
+ 
+ .info-header {
+   display: flex;
+   align-items: baseline;
+   justify-content: space-between;
+   margin-bottom: 3vh;
+   width: 43.75rem;
+ }
+ 
+ .info-header--filter {
+   color: #4d4d4d;
+ }
+ 
+ .info-header--filter span {
+   text-decoration: underline;
+   font-weight: bold;
+ }
+ 
+ .info-header--title {
+   font-weight: 700;
+   font-size: 1.5rem;
+   margin-top: 3.75rem;
+ }
+ 
+ .transaction {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   background-color: white;
+   margin-bottom: 1.9375rem;
+   padding: 2.1875rem 1.8125rem;
+   border-radius: 0.375rem;
+   width: 43.75rem;
+ }
+ 
+ .transaction-amount {
+   font-size: 2.25rem;
+   font-weight: 600;
+   margin: 0;
+ }
+ 
+ .transaction-date {
+   font-weight: 500;
+   font-size: 1.25rem;
+   color: #4d4d4d;
+ }
+ 
+ 
+ @media screen and (max-width: 59.375rem) {
+   .host-income--graph, .host-income-graph-amounts {
+     width: 100%;
+     max-width: 100%;
+   }
+ 
+ 
+   .graph-amount-item {
+     column-gap: 5vw;
+   }
+ 
+   .host-income-graph-values {
+     width: 100%;
+   }
+ 
+   .host-income-graph-values {
+     justify-content: end;
+   }
+ 
+   .graph-column  {
+     width: 8vw;
+   }
+ 
+   .info-header--title {
+     font-size: 1.2rem;
+   }
+ 
+   .transaction, .info-header {
+     width: 100%;
+   }
+ }
