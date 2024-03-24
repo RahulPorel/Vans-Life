@@ -9,13 +9,7 @@ A rental site which let you rent your vans to backpacking people who are always 
 - Fully functainal Ui made using react-router and uses its optmiztion to build this renatal site
 - Separte Panels features are there like User Panel and Admin Panel with authencation
 - Login and Sign up Page for using Admin panel
-
-* Built Using
-
-- React
-- React Router 6
-- Javascript
-- Auth
+- Built Using : React, React Router 6, Javascript, Auth
 
 # Live Demo 👁️
 
