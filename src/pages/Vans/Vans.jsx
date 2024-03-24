@@ -1,5 +1,3 @@
-/** @format */
-
 import { useState } from "react";
 import {
   Link,

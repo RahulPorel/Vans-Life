@@ -2,8 +2,6 @@ import { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import "./Login.css";
 
-
-
 export function loader({ request }) {
   return new URL(request.url).searchParams.get("message");
 }
@@ -18,7 +16,6 @@ const Login = () => {
   const [error, setError] = useState(null);
   const [rmLogin, setRmLogin] = useState(false);
   const message = useLoaderData();
-
   const dbCEmail = localStorage.getItem("confirmEmail");
   const dbCPass = localStorage.getItem("confirmPassWord");
 
@@ -50,8 +47,6 @@ const Login = () => {
   const createAcc = () => {
     setRmLogin(!rmLogin);
   };
-
-  console.log(message);
 
   const handlePassShow = () => {
     const passInput = document.getElementById("cPass-ch");
