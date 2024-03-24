@@ -1,7 +1,9 @@
 {
   "name": "project",
+  "homepage": "https://rahulporel.github.io/Vans-Life/",
   "dependencies": {
     "@types/smtp-server": "^3.5.10",
+    "gh-pages": "^6.1.1",
     "miragejs": "^0.1.48",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -16,7 +18,8 @@
   },
   "scripts": {
     "start": "vite",
-    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
