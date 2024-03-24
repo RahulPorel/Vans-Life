@@ -24,7 +24,7 @@ Pc -
 ![Screenshot (413)](https://github.com/RahulPorel/Vans-Life/assets/98636266/26c0497d-0f6c-47a0-b79f-bf73ab801e71)
 ![Screenshot (415)](https://github.com/RahulPorel/Vans-Life/assets/98636266/ccb1e5e4-82a0-4e5e-b1a5-d2fa075dcb87)
 ![Screenshot (416)](https://github.com/RahulPorel/Vans-Life/assets/98636266/0cab5984-af98-4fc8-bd8d-19bc95ef000f)
-![Screenshot (416)](https://github.com/RahulPorel/Vans-Life/assets/98636266/6e024668-adc3-4448-adac-0a358b97f761)
+
 ![Screenshot (418)](https://github.com/RahulPorel/Vans-Life/assets/98636266/c1c34531-6108-48b8-b1aa-01d67b08d700)
 ![Screenshot (419)](https://github.com/RahulPorel/Vans-Life/assets/98636266/48561b2d-f087-4db6-a11e-f97ae6e9acfa)
 ![Screenshot (420)](https://github.com/RahulPorel/Vans-Life/assets/98636266/d633a199-f8bb-4784-9406-cdea69b026d0)
