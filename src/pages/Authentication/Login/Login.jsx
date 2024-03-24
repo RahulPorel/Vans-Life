@@ -29,7 +29,7 @@ const Login = () => {
       dbCPass === loginFormData.password
     ) {
       localStorage.setItem("loggedin", true);
-      window.location.href = "/";
+      window.location.href = "host";
     } else {
       setError(true);
       setStatus("idle");

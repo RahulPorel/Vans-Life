@@ -13,7 +13,7 @@ const Header = () => {
     localStorage.removeItem("confirmPassWord");
     localStorage.removeItem("name");
     localStorage.removeItem("email");
-    window.location.href = "/  ";
+    window.location.href = "/login";
     localStorage.removeItem("loggedin");
   };
 
@@ -47,7 +47,7 @@ const Header = () => {
         </NavLink>
         <NavLink
           style={({ isActive }) => (isActive ? activeStyles : null)}
-          to="/VanLife"
+          to="/vans"
         >
           Vans
         </NavLink>

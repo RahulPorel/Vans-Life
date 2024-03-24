@@ -37,9 +37,9 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="login" element={<Login />} />
 
-        <Route path="VanLife" element={<Vans />} loader={vansLoader} />
+        <Route path="vans" element={<Vans />} loader={vansLoader} />
         <Route
-          path="VanLife/:id"
+          path="vans/:id"
           element={<VanDetail />}
           loader={VanDetailLoader}
         />
@@ -67,14 +67,10 @@ function App() {
             }}
           />
 
-          <Route
-            path="VanLife"
-            element={<HostVans />}
-            loader={hostVansLoader}
-          />
+          <Route path="vans" element={<HostVans />} loader={hostVansLoader} />
 
           <Route
-            path="VanLife/:id"
+            path="vans/:id"
             element={<HostVanDetails />}
             loader={hostVanDetailLoader}
           >

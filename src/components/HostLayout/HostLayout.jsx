@@ -1,7 +1,9 @@
+
 import { NavLink, Outlet } from "react-router-dom";
 import "./HostLayout.css";
 
 const HostLayout = () => {
+  
   const activeStyle = {
     fontWeight: "bold",
     textDecoration: "underline",
@@ -26,7 +28,7 @@ const HostLayout = () => {
         </NavLink>
         <NavLink
           style={({ isActive }) => (isActive ? activeStyle : null)}
-          to="/host/VanLife"
+          to="/host/vans"
         >
           Vans
         </NavLink>
