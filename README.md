@@ -15,7 +15,7 @@ A rental site which let you rent your vans to backpacking people who are always 
 
 https://rahulporel.github.io/Visiting-Card-Builder/
 
-# Snapshot of Visiting Card Builder
+# Snapshot of Van Life
 
 - Mobile
 
