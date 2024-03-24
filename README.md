@@ -10,7 +10,7 @@ A rental site which let you rent your vans to backpacking people who are always 
 - Separte Panels features are there like User Panel and Admin Panel with authencation
 - Login and Sign up Page for using Admin panel
 
-# Built With
+-- Built Using
 
 - React
 - React Router 6
