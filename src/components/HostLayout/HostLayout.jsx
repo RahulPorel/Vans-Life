@@ -26,7 +26,7 @@ const HostLayout = () => {
         </NavLink>
         <NavLink
           style={({ isActive }) => (isActive ? activeStyle : null)}
-          to="/host/vans"
+          to="/host/VanLife"
         >
           Vans
         </NavLink>

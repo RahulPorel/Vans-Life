@@ -13,7 +13,7 @@ const Header = () => {
     localStorage.removeItem("confirmPassWord");
     localStorage.removeItem("name");
     localStorage.removeItem("email");
-    window.location.href = "/login";
+    window.location.href = "/  ";
     localStorage.removeItem("loggedin");
   };
 
