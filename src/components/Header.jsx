@@ -47,7 +47,7 @@ const Header = () => {
         </NavLink>
         <NavLink
           style={({ isActive }) => (isActive ? activeStyles : null)}
-          to="/vans"
+          to="/VanLife"
         >
           Vans
         </NavLink>
