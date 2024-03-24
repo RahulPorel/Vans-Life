@@ -13,7 +13,7 @@ A rental site which let you rent your vans to backpacking people who are always 
 
 # Live Demo 👁️
 
-https://rahulporel.github.io/Visiting-Card-Builder/
+https://rahulporel.github.io/VanLife/
 
 # Snapshot of Van Life
 
