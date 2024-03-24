@@ -20,7 +20,6 @@ https://vans-lifes.netlify.app/
 Pc -
 
 ![Screenshot (410)](https://github.com/RahulPorel/Vans-Life/assets/98636266/388d5f21-55c0-4ae2-8189-8ad832bf1600)
-![Screenshot (411)](https://github.com/RahulPorel/Vans-Life/assets/98636266/da32e2d5-b6b7-4aa5-b2d5-db542e144d49)
 ![Screenshot (413)](https://github.com/RahulPorel/Vans-Life/assets/98636266/26c0497d-0f6c-47a0-b79f-bf73ab801e71)
 ![Screenshot (415)](https://github.com/RahulPorel/Vans-Life/assets/98636266/ccb1e5e4-82a0-4e5e-b1a5-d2fa075dcb87)
 ![Screenshot (416)](https://github.com/RahulPorel/Vans-Life/assets/98636266/0cab5984-af98-4fc8-bd8d-19bc95ef000f)
