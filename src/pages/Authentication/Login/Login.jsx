@@ -80,7 +80,7 @@ const Login = () => {
     }
   };
 
-  //sign
+  //sign up form
 
   const [signupFormData, setSignUpFormData] = useState({
     name: "",
