@@ -157,7 +157,7 @@ const Login = () => {
         </button>
       </form>
 
-      <p> Don't have an account </p>
+      <p> {"Don't have an account"} </p>
 
       <Link onClick={createAcc} className="createAcc-Btn">
         Create account
